@@ -1,38 +1,320 @@
-.App {
-  text-align: center;
+/* ===== DARK MODE & GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body, html, #root {
+  background-color: #0a0e27 !important;
+  color: #e0e6ff !important;
+  font-family: 'Courier New', monospace;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* ===== RETRO FONT FOR TITLE ===== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+  color: #ffff00 !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* ===== MAIN CONTAINER ===== */
+.container, .container-fluid {
+  background-color: #0a0e27 !important;
+  color: #e0e6ff !important;
+}
+
+/* ===== CARDS & PRODUCT BOXES ===== */
+.card {
+  background: linear-gradient(135deg, #1a1f3a 0%, #2d1b4e 100%) !important;
+  border: 2px solid #ff00ff !important;
+  color: #e0e6ff !important;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.4) !important;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6) !important;
+  transform: scale(1.05);
+  border-color: #00ffff !important;
+}
+.card-title {
+  font-weight: bold;
+  color: #00ffff !important;
+}
+
+/* ===== FORMS & INPUTS ===== */
+.form-control, input, textarea, select {
+  background-color: #1a1f3a !important;
+  color: #ffffff !important;
+  border: 2px solid #00ffff !important;
+  font-size: 16px;
+}
+.form-control:focus, input:focus, textarea:focus {
+  background-color: #2d1b4e !important;
+  border-color: #ffff00 !important;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.3) !important;
+  color: #ffffff !important;
+}
+
+/* ===== FORM LABELS - IMPROVED CONTRAST ===== */
+.form-label {
+  color: #ffffff !important;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== VISUALLY HIDDEN (for accessibility) ===== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn-primary {
+  background-color: #00ffff !important;
+  color: #0a0e27 !important;
+  border: none !important;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+.btn-primary:hover {
+  background-color: #00cc99 !important;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+}
+.btn-primary:focus {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+  color: #0a0e27 !important;
+  outline: 2px solid #ffff00;
+}
+.btn-success {
+  background-color: #00ff00 !important;
+  color: #0a0e27 !important;
+  border: none !important;
+}
+.btn-success:hover {
+  background-color: #00cc00 !important;
+}
+.btn-danger {
+  background-color: #ff0066 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.btn-danger:hover {
+  background-color: #cc0052 !important;
+}
+.btn-link {
+  color: #00ffff !important;
+  text-decoration: none !important;
+}
+.btn-link:hover {
+  color: #ffff00 !important;
+}
+.btn-outline-secondary {
+  color: #00ffff !important;
+  border: 2px solid #00ffff !important;
+}
+.btn-outline-secondary:hover {
+  background-color: #00ffff !important;
+  color: #0a0e27 !important;
+}
+
+/* ===== INPUT GROUPS ===== */
+.input-group-text {
+  background-color: #1a1f3a !important;
+  color: #00ffff !important;
+  border: 2px solid #00ffff !important;
+}
+
+/* ===== MODALS ===== */
+.modal-content {
+  background-color: #1a1f3a !important;
+  color: #e0e6ff !important;
+  border: 2px solid #ff00ff !important;
+  border-radius: 15px;
+}
+.modal-header {
+  border-bottom: 1px solid #00ffff !important;
+}
+.modal-footer {
+  border-top: 1px solid #00ffff !important;
+}
+.btn-close {
+  filter: invert(1) !important;
+}
+
+/* ===== CART MODAL TWEAKS ===== */
+.cart-item-name, .cart-total-label {
+  color: #ffe368 !important;
+  font-weight: bold;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 18px;
+  text-shadow: 0 0 2px #ffff00;
+}
+.cart-item-amount, .cart-total-amount {
+  color: #00ffff !important;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 3px #00ffff, 0 0 2px #111;
+}
+.cart-price, .cart-item-price {
+  color: #b5b8ec !important;
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  opacity: 0.85;
+}
+.cart-controls button {
+  color: #00ffff !important;
+  background: transparent;
+  border: 2px solid #00ffff !important;
+  font-weight: bold;
+}
+.cart-controls button:disabled {
+  opacity: 0.5;
+}
+.cart-controls button:hover {
+  background: #00ffff !important;
+  color: #0a0e27 !important;
+}
+
+.cart-controls input[type='number'],
+input[type='number'].cart-amount,
+.cart-amount {
+  color: #00ffff !important;
+  background: #23243a !important;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 18px;
+  border: none !important;
+  text-align: center;
+  box-shadow: none !important;
+}
+.cart-controls input[type='number']:focus,
+input[type='number'].cart-amount:focus,
+.cart-amount:focus {
+  outline: 2px solid #00ffff !important;
+  background: #181e36 !important;
+}
+
+/* ===== TABLES ===== */
+.table {
+  color: #e0e6ff !important;
+  border-color: #00ffff !important;
+}
+.table thead {
+  background-color: #2d1b4e !important;
+  color: #ffff00 !important;
+  border-bottom: 2px solid #00ffff !important;
+}
+.table tbody tr {
+  border-color: #00ffff !important;
+}
+.table tbody tr:hover {
+  background-color: #1a1f3a !important;
+  color: #00ffff !important;
+}
+
+/* ===== ALERTS & TOASTS ===== */
+.alert {
+  border-radius: 10px;
+  border: 2px solid #ffff00 !important;
+  background-color: #1a1f3a !important;
+  color: #ffffff !important;
+}
+.alert-danger {
+  background-color: #4a1a1a !important;
+  border-color: #ff0066 !important;
+  color: #ffb3d9 !important;
+}
+.toast {
+  background-color: #1a1f3a !important;
+  color: #e0e6ff !important;
+  border: 2px solid #00ffff !important;
+}
+
+/* ===== NAV & HEADER ===== */
+header {
+  background-color: #0a0e27 !important;
+  border-bottom: 3px solid #00ffff !important;
+}
+
+.nav-link, .nav-masthead a, .nav-masthead button, .nav button {
+  color: #00ffff !important;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-right: 1rem;
+  text-shadow: 0 0 6px #00ffff, 0 0 10px #222;
+  transition: color 0.2s, text-shadow 0.3s;
+}
+.nav-link:hover, .nav-masthead a:hover, .nav-masthead button:hover, .nav button:hover {
+  color: #ffff00 !important;
+  text-shadow: 0 0 16px #ffff00, 0 0 32px #00ffff;
+  text-decoration: underline;
+}
+.nav-link.active, .nav-masthead a.active, .nav-masthead button.active, .nav button.active {
+  color: #ff00ff !important;
+  text-shadow: 0 0 24px #ff00ff, 0 0 16px #00ffff;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #0a0e27 !important;
+  border-top: 3px solid #00ffff !important;
+  color: #e0e6ff !important;
+}
+footer a {
+  color: #00ffff !important;
+}
+footer a:hover {
+  color: #ffff00 !important;
+}
+
+/* ===== PRODUCT LIST & ITEMS ===== */
+.product-image {
+  border-radius: 10px;
+  border: 2px solid #00ffff !important;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0e27;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffff00;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #00ffff;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    text-shadow: 0 0 20px #00ffff, 0 0 30px #ff00ff;
+  }
+  100% {
+    text-shadow: 0 0 5px #00ffff;
   }
 }
