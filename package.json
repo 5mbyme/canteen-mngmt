@@ -13,6 +13,7 @@
     "firebase": "^12.5.0",
     "geckodriver": "^6.0.2",
     "jspdf": "^3.0.3",
+    "prop-types": "^15.8.1",
     "react": "^19.2.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.0",
@@ -26,7 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sonar": "sonar-scanner"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sonarqube-scanner": "^4.3.2"
   }
 }

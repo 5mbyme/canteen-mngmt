@@ -5,16 +5,15 @@ async function testLogin() {
     try {
         await driver.get('http://localhost:3000/login');
         await driver.sleep(1500);
+const emailElement = await driver.findElement(By.id('login-email'));
+await driver.wait(until.elementIsVisible(emailElement), 5000);
+await emailElement.sendKeys('admin@test.com');
+console.log('Email field found and value entered');
 
-        const emailElement = await driver.findElement(By.id('email'));
-        await driver.wait(until.elementIsVisible(emailElement), 5000);
-        await emailElement.sendKeys('admin@test.com');
-        console.log('Email field found and value entered');
-
-        const passwordElement = await driver.findElement(By.id('password'));
-        await driver.wait(until.elementIsVisible(passwordElement), 5000);
-        await passwordElement.sendKeys('admin123456');
-        console.log('Password field found and value entered');
+const passwordElement = await driver.findElement(By.id('login-password'));
+await driver.wait(until.elementIsVisible(passwordElement), 5000);
+await passwordElement.sendKeys('admin123456');
+console.log('Password field found and value entered');
 
         // Click submit button
         const loginButton = await driver.findElement(By.css('button[type="submit"]'));

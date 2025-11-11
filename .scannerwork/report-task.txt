@@ -1,0 +1,6 @@
+projectKey=canteen-mngmt
+serverUrl=http://localhost:9000
+serverVersion=25.11.0.114957
+dashboardUrl=http://localhost:9000/dashboard?id=canteen-mngmt
+ceTaskId=a2637a7f-ffa6-4af4-a478-295e240c3594
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a2637a7f-ffa6-4af4-a478-295e240c3594

@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
 const AuthContext = createContext();
 
@@ -17,13 +18,28 @@ export const AuthProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
+  // Fix #2: Wrap context value in useMemo to prevent unnecessary re-renders
+  const value = useMemo(() => ({
+    currentUser,
+    loading,
+  }), [currentUser, loading]);
+
   return (
-    <AuthContext.Provider value={{ currentUser, loading }}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );
 };
 
+// Fix #1: Add PropTypes validation for 'children'
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export const useAuth = () => {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within AuthProvider');
+  }
+  return context;
 };
